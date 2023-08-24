@@ -6,26 +6,27 @@ session_start();
 $settings = 'settings';
 $payment_details = 'payment_details';
 
-function getUserCountryCode() {
+function getUserCountryCode()
+{
     // Get user IP address
     $userIP = $_SERVER['REMOTE_ADDR'];
-    
+
     // Make a request to IP geolocation API
     $apiKey = '39baa7c57c354838b09008c9e95b750d'; // Replace with your actual API key
     $apiUrl = "https://api.ipgeolocation.io/ipgeo?apiKey=$apiKey&ip=$userIP";
-    
+
     $response = file_get_contents($apiUrl);
-    
+
     if ($response) {
         // Parse the JSON response
         $data = json_decode($response, true);
-        
+
         // Extract country code
         $countryCode = $data['country_code2'];
-        
+
         return $countryCode;
     }
-    
+
     return null;
 }
 
@@ -77,85 +78,85 @@ $egyptian_pound = $row['egyptian_pound'];
 $indian_rupee = $row['indian_rupee'];
 $canadian_dollar = $row['canadian_dollar'];
 
-if($user_country_code=='NG'){
+if ($user_country_code == 'NG') {
     $currency_code = 'NGN';
     $initial_pay = $initial_pay;
     $oldprice = $oldprice;
     $currency_sign = '₦';
-}else if($user_country_code=='GH'){
+} else if ($user_country_code == 'GH') {
     $currency_code = 'GHS';
     $initial_pay = $ghanaian_cedi;
-    $oldprice = ((80*$ghanaian_cedi)/20) + $ghanaian_cedi;
+    $oldprice = ((80 * $ghanaian_cedi) / 20) + $ghanaian_cedi;
     $currency_sign = 'GH₵';
-}else if($user_country_code=='KE'){
+} else if ($user_country_code == 'KE') {
     $currency_code = 'KES';
     $initial_pay = $kenyan_shilling;
-    $oldprice = ((80*$kenyan_shilling)/20) + $kenyan_shilling;
+    $oldprice = ((80 * $kenyan_shilling) / 20) + $kenyan_shilling;
     $currency_sign = 'KES';
-}else if($user_country_code=='ZA'){
+} else if ($user_country_code == 'ZA') {
     $currency_code = 'ZAR';
     $initial_pay = $south_african_rand;
-    $oldprice = ((80*$south_african_rand)/20) + $south_african_rand;
+    $oldprice = ((80 * $south_african_rand) / 20) + $south_african_rand;
     $currency_sign = 'ZAR';
-}else if($user_country_code=='USD'){
+} else if ($user_country_code == 'USD') {
     $currency_code = 'USD';
     $initial_pay = $united_states_dollar;
-    $oldprice = ((80*$united_states_dollar)/20) + $united_states_dollar;
+    $oldprice = ((80 * $united_states_dollar) / 20) + $united_states_dollar;
     $currency_sign = '$';
-}else if($user_country_code=='EUR'){
+} else if ($user_country_code == 'EUR') {
     $currency_code = 'EUR';
     $initial_pay = $euro;
-    $oldprice = ((80*$euro)/20) + $euro;
+    $oldprice = ((80 * $euro) / 20) + $euro;
     $currency_sign = '€';
-}else if($user_country_code=='GB'){
+} else if ($user_country_code == 'GB') {
     $currency_code = 'GBP';
     $initial_pay = $british_pound_sterling;
-    $oldprice = ((80*$british_pound_sterling)/20) + $british_pound_sterling;
+    $oldprice = ((80 * $british_pound_sterling) / 20) + $british_pound_sterling;
     $currency_sign = '£';
-}else if($user_country_code=='RW'){
+} else if ($user_country_code == 'RW') {
     $currency_code = 'RWF';
     $initial_pay = $rwandan_franc;
-    $oldprice = ((80*$rwandan_franc)/20) + $rwandan_franc;
+    $oldprice = ((80 * $rwandan_franc) / 20) + $rwandan_franc;
     $currency_sign = 'R₣';
-}else if($user_country_code=='TZ'){
+} else if ($user_country_code == 'TZ') {
     $currency_code = 'TZS';
     $initial_pay = $tanzanian_shilling;
-    $oldprice = ((80*$tanzanian_shilling)/20) + $tanzanian_shilling;
+    $oldprice = ((80 * $tanzanian_shilling) / 20) + $tanzanian_shilling;
     $currency_sign = 'TSh';
-}else if($user_country_code=='UG'){
+} else if ($user_country_code == 'UG') {
     $currency_code = 'UGX';
     $initial_pay = $ugandan_shilling;
-    $oldprice = ((80*$ugandan_shilling)/20) + $ugandan_shilling;
+    $oldprice = ((80 * $ugandan_shilling) / 20) + $ugandan_shilling;
     $currency_sign = 'USh';
-}else if($user_country_code=='ZM'){
+} else if ($user_country_code == 'ZM') {
     $currency_code = 'ZMW';
     $initial_pay = $zambian_kwacha;
-    $oldprice = ((80*$zambian_kwacha)/20) + $zambian_kwacha;
+    $oldprice = ((80 * $zambian_kwacha) / 20) + $zambian_kwacha;
     $currency_sign = 'ZK';
-}else if($user_country_code=='MA'){
+} else if ($user_country_code == 'MA') {
     $currency_code = 'MAD';
     $initial_pay = $moroccan_dirham;
-    $oldprice = ((80*$moroccan_dirham)/20) + $moroccan_dirham;
+    $oldprice = ((80 * $moroccan_dirham) / 20) + $moroccan_dirham;
     $currency_sign = 'MAD';
-}else if($user_country_code=='EG'){
+} else if ($user_country_code == 'EG') {
     $currency_code = 'EGP';
     $initial_pay = $egyptian_pound;
-    $oldprice = ((80*$egyptian_pound)/20) + $egyptian_pound;
+    $oldprice = ((80 * $egyptian_pound) / 20) + $egyptian_pound;
     $currency_sign = 'E£';
-}else if($user_country_code=='IN'){
+} else if ($user_country_code == 'IN') {
     $currency_code = 'INR';
     $initial_pay = $indian_rupee;
-    $oldprice = ((80*$indian_rupee)/20) + $indian_rupee;
+    $oldprice = ((80 * $indian_rupee) / 20) + $indian_rupee;
     $currency_sign = '₹';
-}else if($user_country_code=='CA'){
+} else if ($user_country_code == 'CA') {
     $currency_code = 'CAD';
     $initial_pay = $canadian_dollar;
-    $oldprice = ((80*$canadian_dollar)/20) + $canadian_dollar;
+    $oldprice = ((80 * $canadian_dollar) / 20) + $canadian_dollar;
     $currency_sign = 'CAD';
-}else{
+} else {
     $currency_code = 'USD';
     $initial_pay = $united_states_dollar;
-    $oldprice = ((80*$united_states_dollar)/20) + $united_states_dollar;
+    $oldprice = ((80 * $united_states_dollar) / 20) + $united_states_dollar;
     $currency_sign = '$';
 }
 
@@ -232,15 +233,17 @@ $durationE = 'After 24 Hours';
 $siteYear = date('Y');
 $dummyEmail = 'peterchrisbox@gmail.com';
 $companyNumber = '12850124';
-$domain = 'creativehubacademy.centadesk.com';
+$domain = 'centadesk.com';
 $siteLink = 'https://' . $domain . '/';
 $siteRegister = 'https://' . $domain . '/accounts/register';
 $siteLogin = 'https://' . $domain . '/accounts/login';
 $site = 'https://' . $domain;
 $siteName = $row['site_name'];
 $siteEmail = "support@" . $domain;
+$siteEmail1 = "support@" . $domain;
 $siteEmail2 = "support@" . $domain;
 $sitePhone = $row['site_phone'];
+$sitePhone1 = $row['site_phone'];
 $sitePhone2 = $row['site_phone'];
 $siteAddress = $row['site_address'];
 $siteAddress2 = 'Enugu, Lagos, Abuja';
@@ -271,6 +274,8 @@ $bockpub = 'bockpub';
 $pay_set = 'pay_set';
 $course_tb = 'course_tb';
 $cat_tb = 'cat_tb';
+$course_cat_tb = 'course_cat_tb';
+$school_course_tb = 'school_course_tb';
 $life_one_bonus = 'life_one_bonus';
 $payout_manipulate = 'payout_manipulate';
 $review = 'review';
@@ -335,6 +340,9 @@ class Cal extends DBConnection
     protected $comments_tb = 'comments_tb';
     protected $news_letter = 'news_letter';
     protected $orders_tb = 'orders_tb';
+    protected $cat_tb = 'cat_tb';
+    protected $course_cat_tb = 'course_cat_tb';
+    protected $school_course_tb = 'school_course_tb';
     private static function generateQuestionMark($arr)
     {
         $count = count($arr);

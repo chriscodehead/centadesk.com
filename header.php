@@ -1,4 +1,4 @@
-<div style="width: 100%; font-size: 13px; padding-top: 3px; padding-bottom: 3px;"><a href="tel:<?php print $sitePhone;?>"><em style="padding-left: 50px;" class="fa fa-phone"></em> <?php print $sitePhone;?></a> | <a href="mailto:<?php print $siteEmail;?>"><em class="fa fa-envelope"></em> <?php print $siteEmail;?></a></div>
+<div style="width: 100%; font-size: 13px; padding-top: 5px; padding-bottom: 5px;"><a href="tel:<?php print $sitePhone; ?>"><em style="padding-left: 50px;" class="fa fa-phone"></em> <?php print $sitePhone; ?></a> | <a href="mailto:<?php print $siteEmail; ?>"><em class="fa fa-envelope"></em> <?php print $siteEmail; ?></a></div>
 
 <header class="wrapper bg-soft-primary">
     <nav class="navbar navbar-expand-lg center-nav transparent navbar-light">
@@ -10,7 +10,7 @@
             </div>
             <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
                 <div class="offcanvas-header d-lg-none">
-                    <h3 class="text-white fs-30 mb-0"><?php print $siteName;?></h3>
+                    <h3 class="text-white fs-30 mb-0"><?php print $siteName; ?></h3>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"><em class="fa fa-close"></em></button>
                 </div>
                 <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
@@ -42,8 +42,8 @@
                     </ul>
                     <div class="offcanvas-footer d-lg-none">
                         <div>
-                            <a href="mailto:<?php print $siteEmail;?>" class="link-inverse"><span class="__cf_email__" data-cfemail="9ff6f1f9f0dffaf2fef6f3b1fcf0f2"><?php print $siteEmail;?></span></a>
-                            <br /> <?php print $sitePhone;?> <br />
+                            <a href="mailto:<?php print $siteEmail; ?>" class="link-inverse"><span class="__cf_email__" data-cfemail="9ff6f1f9f0dffaf2fef6f3b1fcf0f2"><?php print $siteEmail; ?></span></a>
+                            <br /> <?php print $sitePhone; ?> <br />
                             <nav class="nav social social-white mt-4">
                                 <a target="_blank" href="https://twitter.com/centadesk"><i class="fa fa-twitter"></i></a>
                                 <a target="_blank" href="https://web.facebook.com/centadesk"><i class="fa fa-facebook-f"></i></a>
@@ -75,12 +75,12 @@
         </div>
         <div class="offcanvas-body pb-6">
             <div class="widget mb-8">
-                <p class="fs-15">Problem-solving is one of the most vital and basic skill which is required by every one of us in the 21st century. At <?php print $siteName;?> that what we are all about solving your day to day needs.</p>
+                <p class="fs-15">Problem-solving is one of the most vital and basic skill which is required by every one of us in the 21st century. At <?php print $siteName; ?> that what we are all about solving your day to day needs.</p>
             </div>
             <div class="widget mb-8">
                 <h4 class="widget-title text-white mb-3">Contact Info</h4>
-                <address> <?php print $siteAddress;?> </address>
-                <a href="mailto:<?php print $siteEmail;?>"><span class="__cf_email__" data-cfemail="c5acaba3aa85a0a8a4aca9eba6aaa8"><?php print $siteEmail;?></span></a><br /> <a href="tel:<?php print $sitePhone;?>"><?php print $sitePhone;?></a>
+                <address> <?php print $siteAddress; ?> </address>
+                <a href="mailto:<?php print $siteEmail; ?>"><span class="__cf_email__" data-cfemail="c5acaba3aa85a0a8a4aca9eba6aaa8"><?php print $siteEmail; ?></span></a><br /> <a href="tel:<?php print $sitePhone; ?>"><?php print $sitePhone; ?></a>
             </div>
 
             <div class="widget">
