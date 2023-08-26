@@ -2186,10 +2186,11 @@ you already made payment. Have any problem? Contact us @ support@centadesk.com</
 						<td >S/N</td>
 						<td>Name</td>
 						<td >Email</td>
-						<!--<td >Country</td>-->
+						<td >Country</td>
 						<td>Status</td>
-                        <td >Activation</td>
-						<td >Referral Username</td>
+      <td >Email Activation</td>
+      <td >Payment Status</td>
+						<!--<td >Referral Username</td>-->
 						<!--<td>Account Type</td>-->
 						<!--<td style="color:green;">ADD BONUS</td>-->
 						<td >Date Reg.</td>
@@ -2214,12 +2215,13 @@ you already made payment. Have any problem? Contact us @ support@centadesk.com</
 
 				echo '<tr>
 			<td >' . $i . '</td>
-			<td >' . $row['first_name'] . '</td>
+			<td >' . $row['first_name'] . ' ' . $row['last_name'] . '</td>
 			<td >' . $row['email'] . '</td>
-			<!--<td >' . $row['country'] . '</td>-->
+			<td >' . $row['country'] . '</td>
 			<td >' . $row['blocked_account'] . '</td>
    <td >' . $activation . '</td>
-			<td >' . $row['referral_username'] . '</td>
+			<td >' . $row['payment_activation_status'] . '</td>
+			<!--<td >' . $row['referral_username'] . '</td>-->
 			<!--<td >' . $row['account_type'] . '</td>-->
 			<!--<td style="color:green;"><a href="add-bonus?id=' . $row['email'] . '">
 			<i class="btn btn-success btn-small fa fa-pencil"> Add</i></a></td>-->

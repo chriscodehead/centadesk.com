@@ -22,6 +22,7 @@ if (isset($_POST['sub'])) {
   $payment_method = $_POST['payment_method'];
   $hear_about_us = $_POST['hear_about_us'];
   $learning_interest = $_POST['learning_interest'];
+  $learning_device = $_POST['learning_device'];
   $address = '';
   $user_code = $bassic->picker() . uniqid();
   $date_reg = $bassic->getDate();
@@ -48,16 +49,16 @@ if (isset($_POST['sub'])) {
         $msg = "Error! Email address used, already exist";
       } else if ($cal->checkifdataExists($email, 'email', $user_tb) == 0) {
 
-        $feilds = array('id', 'user_code', 'first_name', 'last_name', 'sex', 'country', 'email', 'phone', 'password', 'date_reg', 'last_activity', 'email_activation', 'blocked_account', 'forget_password_code', 'passport', 'client_username', 'address', 'account_type', 'hashed_pot', 'two_factor', 'two_factor_code', 'rawpass', 'payment_activation_status', 'main_account_balance', 'dob', 'employment_status', 'experience_level', 'learning_hours', 'payment_method', 'hear_about_us', 'learning_interest');
-        $value = array(null, $user_code, $fname, $lname, $sex, $country, $email, $phone, $passh, $date_reg, $last_activity, $email_activation, $blocked_account, $forget_password_code, $passport, $client_username, $address, $account_type, $hashed_pot, $two_factor, $two_factor_code, $rawpass, $payment_activation_status, $main_account_balance, $dob, $employment_status, $experience_level, $learning_hours, $payment_method, $hear_about_us, $learning_interest);
+        $feilds = array('id', 'user_code', 'first_name', 'last_name', 'sex', 'country', 'email', 'phone', 'password', 'date_reg', 'last_activity', 'email_activation', 'blocked_account', 'forget_password_code', 'passport', 'client_username', 'address', 'account_type', 'hashed_pot', 'two_factor', 'two_factor_code', 'rawpass', 'payment_activation_status', 'main_account_balance', 'dob', 'employment_status', 'experience_level', 'learning_hours', 'payment_method', 'hear_about_us', 'learning_interest', 'learning_device');
+        $value = array(null, $user_code, $fname, $lname, $sex, $country, $email, $phone, $passh, $date_reg, $last_activity, $email_activation, $blocked_account, $forget_password_code, $passport, $client_username, $address, $account_type, $hashed_pot, $two_factor, $two_factor_code, $rawpass, $payment_activation_status, $main_account_balance, $dob, $employment_status, $experience_level, $learning_hours, $payment_method, $hear_about_us, $learning_interest, $learning_device);
         $result = $cal->insertDataB($user_tb, $feilds, $value);
         $msg = $result;
         if ($result == 'Registration was successful. Proceed to login!') {
-            
-            $subject = $siteName." New Student Registration.";
-            $message = 'Phone: '.$phone.', Email: '.$email.', Country: '.$country.', Sex: '.$sex.', Learning Interest: '.$learning_interest;
-            $email_call->contactUsMail($fullname, $email, $subject, $message);
-            /*if($user_country_code=='NG'){
+
+          $subject = $siteName . " New Student Registration.";
+          $message = 'Phone: ' . $phone . ', Email: ' . $email . ', Country: ' . $country . ', Sex: ' . $sex . ', Learning Interest: ' . $learning_interest;
+          $email_call->contactUsMail($fullname, $email, $subject, $message);
+          /*if($user_country_code=='NG'){
                 $currency_code = 'NGN';
                 $initial_pay = $initial_pay;
             }else if($user_country_code=='GH'){
@@ -73,7 +74,7 @@ if (isset($_POST['sub'])) {
                 $currency_code = 'USD';
                 $initial_pay = 50;
             }*/
-            
+
           // Prepare the payment request payload
           $payload = array(
             'tx_ref' => $user_code, // Generate a unique transaction reference
@@ -174,7 +175,7 @@ require_once('head.php'); ?>
             <div class="row justify-content-center">
               <div class="col-lg-6">
                 <?php if (isset($msg) && !empty($msg)) { ?>
-                  <div class="alert alert-danger text-white"><?php print $msg; ?> <?php if(isset($_GET['cancel'])&&!empty($_GET['cancel'])) print @$_GET['cancel'];?></div>
+                  <div class="alert alert-danger text-white"><?php print $msg; ?> <?php if (isset($_GET['cancel']) && !empty($_GET['cancel'])) print @$_GET['cancel']; ?></div>
                 <?php } ?>
                 <div class="bbox__form" data-aos="fade-up" data-aos-delay="300">
                   <form action="" class="row" method="post" enctype="multipart/form-data">
@@ -576,8 +577,8 @@ require_once('head.php'); ?>
 
                 <div class="col-12 terms">
                   <p class="text-white">
-                    By clicking on the Apply Now! button, you agree to <?php print $siteName;?>.
-                    <a href="#">terms and conditions of use.</a> <span class="text-success">Fee: <?php print $currency_sign;?><?php print number_format($initial_pay);?></span>
+                    By clicking on the Apply Now! button, you agree to <?php print $siteName; ?>.
+                    <a href="#">terms and conditions of use.</a> <span class="text-success">Fee: <?php print $currency_sign; ?><?php print number_format($initial_pay); ?></span>
                   </p>
                 </div>
 
