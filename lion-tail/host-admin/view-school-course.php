@@ -16,7 +16,7 @@ $actova91 = 'active'; ?>
 <?php
 if (isset($_GET['delete']) && !empty($_GET['delete'])) {
  if (query_sql("DELETE FROM $school_course_tb WHERE `id`='" . $_GET['delete'] . "' LIMIT 1")) {
-  $msg = 'Delete process was successful!';
+  $msg = 'Data was successfully deleted!';
   header("location:view-school-course?done=" . $msg);
  } else {
   $msg = 'Info Faild to delete!';
