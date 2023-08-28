@@ -71,7 +71,7 @@ if (isset($_POST['sub'])) {
     $referral = mysqli_real_escape_string($link, htmlentities($_POST['referral']));
     $email = mysqli_real_escape_string($link, htmlentities($_POST['email']));
     $email_activation = mysqli_real_escape_string($link, htmlentities($_POST['email_activation']));
-    $payment_activation_status = mysqli_real_escape_string($link, htmlentities($_POST['payment_activation_status']));
+    //$payment_activation_status = mysqli_real_escape_string($link, htmlentities($_POST['payment_activation_status']));
     $dob = mysqli_real_escape_string($link, htmlentities($_POST['dob']));
     $employment_status = mysqli_real_escape_string($link, htmlentities($_POST['employment_status']));
     $experience_level = mysqli_real_escape_string($link, htmlentities($_POST['experience_level']));
@@ -84,8 +84,8 @@ if (isset($_POST['sub'])) {
     //$actual_amount = mysqli_real_escape_string($link, htmlentities($_POST['actual_amount']));
 
     if (!empty($name) && !empty($phone)) {
-        $fieldA = array('first_name', 'sex', 'country', 'phone', 'email_activation', 'payment_activation_status', 'dob', 'employment_status', 'experience_level', 'learning_device', 'learning_hours', 'payment_method', 'hear_about_us', 'learning_interest');
-        $valueA = array($name, $sex, $country, $phone, $email_activation, $payment_activation_status, $dob, $employment_status, $experience_level, $learning_device, $learning_hours, $payment_method, $hear_about_us, $learning_interest);
+        $fieldA = array('first_name', 'sex', 'country', 'phone', 'email_activation', 'dob', 'employment_status', 'experience_level', 'learning_device', 'learning_hours', 'payment_method', 'hear_about_us', 'learning_interest');
+        $valueA = array($name, $sex, $country, $phone, $email_activation, $dob, $employment_status, $experience_level, $learning_device, $learning_hours, $payment_method, $hear_about_us, $learning_interest);
         $msg = $cal->update($user_tb, $fieldA, $valueA, 'email', $user_id);
     } else {
         $msg = 'Please fill all fields';
@@ -250,7 +250,7 @@ require_once('head.php') ?>
                                                     </div>
 
 
-                                                    <div class="form-group">
+                                                    <div style="display: none;" class="form-group">
                                                         <label class="col-lg-2 control-label">Payment Status </label>
                                                         <div class="col-lg-6">
                                                             <input type="text" name="payment_activation_status" value="<?php print @$cal->selectFrmDB($user_tb, 'payment_activation_status', 'email', $user_id); ?>" class="form-control" id="payment_activation_status" placeholder="">

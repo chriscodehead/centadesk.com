@@ -285,6 +285,7 @@ $product = 'product';
 $comments_tb = 'comments_tb';
 $news_letter = 'news_letter';
 $orders_tb = 'orders_tb';
+$course_enrollment_tb = 'course_enrollment_tb';
 class Cal extends DBConnection
 {
 
@@ -343,6 +344,7 @@ class Cal extends DBConnection
     protected $cat_tb = 'cat_tb';
     protected $course_cat_tb = 'course_cat_tb';
     protected $school_course_tb = 'school_course_tb';
+    protected $course_enrollment_tb = 'course_enrollment_tb';
     private static function generateQuestionMark($arr)
     {
         $count = count($arr);

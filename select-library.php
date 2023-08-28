@@ -20,6 +20,7 @@ $orders_tb = 'orders_tb';
 $cat_tb = 'cat_tb';
 $course_cat_tb = 'course_cat_tb';
 $school_course_tb = 'school_course_tb';
+$course_enrollment_tb = 'course_enrollment_tb';
 class select extends DBConnection
 {
 	private      $_query,
@@ -49,6 +50,7 @@ class select extends DBConnection
 	protected $cat_tb = 'cat_tb';
 	protected $course_cat_tb = 'course_cat_tb';
 	protected $school_course_tb = 'school_course_tb';
+	protected $course_enrollment_tb = 'course_enrollment_tb';
 	public function PendingInvestment($email)
 	{
 		$sql = "SELECT * FROM $this->deposit_tb WHERE `email` = '" . $email . "'  and `deposit_status` = 'pending'  ORDER BY id DESC";
@@ -2189,7 +2191,7 @@ you already made payment. Have any problem? Contact us @ support@centadesk.com</
 						<td >Country</td>
 						<td>Status</td>
       <td >Email Activation</td>
-      <td >Payment Status</td>
+      <!--<td >Payment Status</td>-->
 						<!--<td >Referral Username</td>-->
 						<!--<td>Account Type</td>-->
 						<!--<td style="color:green;">ADD BONUS</td>-->
@@ -2220,7 +2222,7 @@ you already made payment. Have any problem? Contact us @ support@centadesk.com</
 			<td >' . $row['country'] . '</td>
 			<td >' . $row['blocked_account'] . '</td>
    <td >' . $activation . '</td>
-			<td >' . $row['payment_activation_status'] . '</td>
+			<!--<td >' . $row['payment_activation_status'] . '</td>-->
 			<!--<td >' . $row['referral_username'] . '</td>-->
 			<!--<td >' . $row['account_type'] . '</td>-->
 			<!--<td style="color:green;"><a href="add-bonus?id=' . $row['email'] . '">

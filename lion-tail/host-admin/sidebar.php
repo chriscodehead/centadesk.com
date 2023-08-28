@@ -43,9 +43,16 @@
             </li>
 
             <li class="sub-menu <?php print @$actova2aa; ?>">
-                <a href="create-school-course.php" class="">
+                <a href="create-school-course" class="">
                     <i class="fa fa-bank"></i>
                     <span style="color:#FFF;">Create Courses</span>
+                </a>
+            </li>
+
+            <li class="sub-menu <?php print @$actova23aa; ?>">
+                <a href="edit-student-enrollments" class="">
+                    <i class="fa fa-bank"></i>
+                    <span style="color:#FFF;">Courses Enrollment</span>
                 </a>
             </li>
 
