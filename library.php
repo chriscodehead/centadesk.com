@@ -15,7 +15,7 @@ function getUserCountryCode()
     $apiKey = '39baa7c57c354838b09008c9e95b750d'; // Replace with your actual API key
     $apiUrl = "https://api.ipgeolocation.io/ipgeo?apiKey=$apiKey&ip=$userIP";
 
-    $response = file_get_contents($apiUrl);
+    $response = @file_get_contents($apiUrl);
 
     if ($response) {
         // Parse the JSON response
